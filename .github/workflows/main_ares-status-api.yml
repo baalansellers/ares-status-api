@@ -29,7 +29,6 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        #working-directory: build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -61,6 +60,5 @@ jobs:
         with:
           app-name: "ares-status-api"
           slot-name: "Production"
-          #startup-command: "npm run start"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_558139C702EC43D6A43EB35395B75988 }}
           package: .
