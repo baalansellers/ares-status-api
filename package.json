@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "pm2 start ./build/server.js",
+    "build": "tsc --project ."
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
