@@ -27,6 +27,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
+          echo -e "PORT=80" > .env
           npm run build --if-present
           npm run test --if-present
 
