@@ -50,7 +50,7 @@ jobs:
         with:
           name: node-app
 
-      - name: 'Login via Azure CLI'
+      - name: "Login via Azure CLI"
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -61,6 +61,6 @@ jobs:
         with:
           app-name: "ares-status-api"
           slot-name: "Production"
+          #startup-command: "npm run start"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_558139C702EC43D6A43EB35395B75988 }}
           package: .
-          startup-command: "npm run start"
