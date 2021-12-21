@@ -23,11 +23,23 @@ app.get("/skywarn-status", async (req, res) => {
   res.status(200).send({ imageURI: imageURL });
 });
 
-app.get("/ares-status", async (req, res) => {
+app.get("/ares-status-src", async (req, res) => {
   const resp = await axios.get("https://srcares.dreamhosters.com/activation/");
   const $ = await cheerio.load(resp.data);
 
   const imageURL = $("figure.ares-status img").attr("src");
+
+  //console.log(imageURL);
+
+  res.status(200).send({ imageURI: imageURL });
+});
+
+app.get("/ares-status-nfl", async (req, res) => {
+  const resp = await axios.get("https://arrl-nfl.org/ares/activation-status/");
+  const $ = await cheerio.load(resp.data);
+
+  //Unfortunately, we'll have to go with the first image in the content div
+  const imageURL = $("div.entry-content img").attr("src");
 
   //console.log(imageURL);
 
